@@ -1,0 +1,25 @@
+{
+  "name": "dipper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexdemaster/dipper.git"
+  },
+  "author": "Kovacs Alex",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexdemaster/dipper/issues"
+  },
+  "homepage": "https://github.com/alexdemaster/dipper#readme",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js",
+    "klasa": "github:dirigeants/klasa#master",
+    "ms": "^2.1.1",
+    "node-fetch": "^2.3.0"
+  }
+}
