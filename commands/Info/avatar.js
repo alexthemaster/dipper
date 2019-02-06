@@ -4,30 +4,30 @@ module.exports = class extends Command {
 
     constructor(...args) {
         super(...args, {
-            name: 'confused',
+            name: 'avatar',
             enabled: true,
             runIn: ['text', 'dm'],
-            cooldown: 60,
+            cooldown: 5,
             deletable: true,
             bucket: 1,
             aliases: [],
-            guarded: true,
+            guarded: false,
             nsfw: false,
             permissionLevel: 0,
             requiredPermissions: [],
             requiredSettings: [],
             subcommands: false,
-            description: 'Confused? Use this command!',
+            description: 'Sends the avatar of a user!',
             quotedStringSupport: false,
-            usage: '',
+            usage: '[user:user]',
             usageDelim: undefined,
             extendedHelp: 'No extended help available.'
         });
     }
 
-    async run(message) {
-        return message.send(`Hi. You might be confused as to why I appeared in your server! You might remember me, I'm Sensei, but better! My creator rewrote me from zero, to bring you the best of the best! If you find any bugs or have feedback in general use the ${message.content.slice(0, message.prefixLength)}feedback command!`)
-    }
+    async run(message, [user = message.author]) {
+        return message.send(user.displayAvatarURL({ size: 2048 }))
+    }  
 
     async init() {
 

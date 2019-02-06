@@ -4,20 +4,20 @@ module.exports = class extends Command {
 
     constructor(...args) {
         super(...args, {
-            name: 'confused',
+            name: 'invite',
             enabled: true,
             runIn: ['text', 'dm'],
-            cooldown: 60,
+            cooldown: 120,
             deletable: true,
             bucket: 1,
             aliases: [],
-            guarded: true,
+            guarded: false,
             nsfw: false,
             permissionLevel: 0,
             requiredPermissions: [],
             requiredSettings: [],
             subcommands: false,
-            description: 'Confused? Use this command!',
+            description: 'Want to invite the bot to your server? Use this command to generate an invite link!',
             quotedStringSupport: false,
             usage: '',
             usageDelim: undefined,
@@ -26,7 +26,8 @@ module.exports = class extends Command {
     }
 
     async run(message) {
-        return message.send(`Hi. You might be confused as to why I appeared in your server! You might remember me, I'm Sensei, but better! My creator rewrote me from zero, to bring you the best of the best! If you find any bugs or have feedback in general use the ${message.content.slice(0, message.prefixLength)}feedback command!`)
+        const invite = await this.client.generateInvite('ADMINISTRATOR');
+        message.send(`You can invite me using the following link: <${invite}>`);
     }
 
     async init() {

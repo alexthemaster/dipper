@@ -8,6 +8,8 @@ module.exports = class extends Command {
 	constructor(...args) {
 		super(...args, {
 			guarded: true,
+			deletable: true,
+			requiredPermissions: ["EMBED_LINKS"],
 			description: language => language.get('COMMAND_STATS_DESCRIPTION')
 		});
 	}

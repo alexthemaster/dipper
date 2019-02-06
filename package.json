@@ -18,6 +18,7 @@
   "homepage": "https://github.com/alexdemaster/dipper#readme",
   "dependencies": {
     "discord.js": "github:discordjs/discord.js",
+    "google-translate-api": "^2.3.0",
     "klasa": "github:dirigeants/klasa#master",
     "ms": "^2.1.1",
     "node-fetch": "^2.3.0"

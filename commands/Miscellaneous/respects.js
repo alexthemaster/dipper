@@ -4,20 +4,20 @@ module.exports = class extends Command {
 
     constructor(...args) {
         super(...args, {
-            name: 'confused',
+            name: 'respects',
             enabled: true,
             runIn: ['text', 'dm'],
-            cooldown: 60,
+            cooldown: 30,
             deletable: true,
             bucket: 1,
             aliases: [],
-            guarded: true,
+            guarded: false,
             nsfw: false,
             permissionLevel: 0,
             requiredPermissions: [],
             requiredSettings: [],
             subcommands: false,
-            description: 'Confused? Use this command!',
+            description: 'A leaderboard of the top 10 users with the most respects paid. (global)',
             quotedStringSupport: false,
             usage: '',
             usageDelim: undefined,
@@ -26,7 +26,9 @@ module.exports = class extends Command {
     }
 
     async run(message) {
-        return message.send(`Hi. You might be confused as to why I appeared in your server! You might remember me, I'm Sensei, but better! My creator rewrote me from zero, to bring you the best of the best! If you find any bugs or have feedback in general use the ${message.content.slice(0, message.prefixLength)}feedback command!`)
+        const users = this.client.users.filter(u => u.settings.respects >= 1).sort((a, b) => b.settings.respects - a.settings.respects).map(u => `**${u.tag}** → ${u.settings.respects} respects`);
+        if (users.length < 1) return message.send('No respects paid so far.');
+        return message.send(`Here's the top 10 users with the most respects paid:\n${users.slice(0, 9).join('\n')}`);
     }
 
     async init() {

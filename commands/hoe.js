@@ -27,7 +27,6 @@ module.exports = class extends Command {
     }
 
     async run(message) {
-        message.guild.settings.get()
         const display = new RichDisplay(new MessageEmbed().setAuthor(this.client.user.username, this.client.user.displayAvatarURL({ size: 2048 })))
             .addPage(t => t.setDescription("I'm a sick fuck, I like a quick fuck"))
             .addPage(t => t.setDescription("I like my dick sucked, I'll buy you a sick truck"))

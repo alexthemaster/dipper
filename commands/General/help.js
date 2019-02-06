@@ -10,6 +10,7 @@ module.exports = class extends Command {
 	constructor(...args) {
 		super(...args, {
 			aliases: ['commands', 'cmd', 'cmds'],
+			deletable: true,
 			guarded: true,
 			description: (language) => language.get('COMMAND_HELP_DESCRIPTION'),
 			usage: '(Command:command)'

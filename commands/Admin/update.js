@@ -1,23 +1,24 @@
 const { Command } = require('klasa');
+const { exec } = require('child_process');
 
 module.exports = class extends Command {
 
     constructor(...args) {
         super(...args, {
-            name: 'confused',
+            name: 'update',
             enabled: true,
             runIn: ['text', 'dm'],
-            cooldown: 60,
+            cooldown: 0,
             deletable: true,
             bucket: 1,
             aliases: [],
             guarded: true,
             nsfw: false,
-            permissionLevel: 0,
+            permissionLevel: 10,
             requiredPermissions: [],
             requiredSettings: [],
             subcommands: false,
-            description: 'Confused? Use this command!',
+            description: '',
             quotedStringSupport: false,
             usage: '',
             usageDelim: undefined,
@@ -26,7 +27,11 @@ module.exports = class extends Command {
     }
 
     async run(message) {
-        return message.send(`Hi. You might be confused as to why I appeared in your server! You might remember me, I'm Sensei, but better! My creator rewrote me from zero, to bring you the best of the best! If you find any bugs or have feedback in general use the ${message.content.slice(0, message.prefixLength)}feedback command!`)
+        await message.send('Right away.')
+        exec('git pull', (err, stdout, stderr) => {
+            if (err || stderr) return message.send(`Something went wrong: ${err || stderr}`);
+            process.exit();
+        }) 
     }
 
     async init() {

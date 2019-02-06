@@ -1,4 +1,4 @@
-const { Event } = require('klasa');
+const { Client, Event } = require('klasa');
 
 module.exports = class extends Event {
 
@@ -17,7 +17,6 @@ module.exports = class extends Event {
     }
 
     async init() {
-
     }
 
 };

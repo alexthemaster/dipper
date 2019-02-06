@@ -9,6 +9,7 @@ module.exports = class extends Command {
 			description: 'Execute commands in the terminal, use with EXTREME CAUTION.',
 			guarded: true,
 			permissionLevel: 10,
+			deletable: true,
 			usage: '<expression:string>',
 			extendedHelp: 'Times out in 60 seconds by default. This can be changed with --timeout=TIME_IN_MILLISECONDS'
 		});
