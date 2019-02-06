@@ -37,6 +37,7 @@ module.exports = class extends Command {
         });
         // if (res.status != 200) return message.send("Something went wrong or there's no breaches linked to your account.")
         // if (res.status == 200) res = await res.json();
+        console.log(res)
         res = await res.json();
         const display = new RichDisplay(new MessageEmbed().setAuthor(`Account Breaches for ${email.input}`, message.author.displayAvatarURL({ size: 2048 })).setColor('#508ff4'));
         const time = new Timestamp('LLL');
