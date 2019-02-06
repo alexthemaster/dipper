@@ -30,8 +30,11 @@ module.exports = class extends Command {
     }
 
     async run(message, [email]) {
-        let res = await fetch('https://haveibeenpwned.com/api/v2/breachedaccount/' + email.input,
-        );
+        let res = await fetch('https://haveibeenpwned.com/api/v2/breachedaccount/' + email.input, {
+            headers: {
+                'User-Agent': "Dipper Discord (Bot)"
+            }
+        });
         // if (res.status != 200) return message.send("Something went wrong or there's no breaches linked to your account.")
         // if (res.status == 200) res = await res.json();
         console.log(res)
