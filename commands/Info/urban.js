@@ -42,7 +42,7 @@ module.exports = class extends Command {
             display.addPage(p => p.setDescription(`**Word** → ${t.word}\n**Definition** → ${t.definition}\n**Example** → ${t.example}\n**Likes** → ${t.thumbs_up}\n**Dislikes** → ${t.thumbs_down}\n**Written On** → ${new Timestamp('LLL').display(t.written_on)}`))
         })
 
-        return display.run(await message.send("loading..."))
+        return display.run(await message.send("Loading..."), { filter: (reaction, user) => user.id === message.author.id })
     }
 
     async init() {

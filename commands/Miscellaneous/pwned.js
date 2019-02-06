@@ -7,7 +7,7 @@ module.exports = class extends Command {
     constructor(...args) {
         super(...args, {
             name: 'pwned',
-            enabled: true,
+            enabled: false,
             runIn: ['text', 'dm'],
             cooldown: 60,
             deletable: true,
