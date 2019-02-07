@@ -1,5 +1,5 @@
 const { Client, Event } = require('klasa');
-const DBL = require("dblapi.js");
+const dbl = require("dblapi.js");
 
 module.exports = class extends Event {
 
