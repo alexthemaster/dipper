@@ -30,7 +30,7 @@ module.exports = class extends Command {
         await message.send('Right away.')
         exec('git pull', (err, stdout, stderr) => {
             if (err || stderr) return message.send(`Something went wrong: ${err || stderr}`);
-            process.exit();
+            this.client.commands.get('reload').everything(message);
         }) 
     }
 
