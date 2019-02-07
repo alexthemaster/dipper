@@ -34,7 +34,7 @@ module.exports = class extends Command {
 
         let res = await fetch(base_url(term.join(' ')))
         res = await res.json();
-        if (!res.list[0]) return message.send(`Sorry but I couldn't find anything on Urban Dictionary for: ${toSearch}`);
+        if (!res.list[0]) return message.send(`Sorry but I couldn't find anything on Urban Dictionary for: \`${term.join(' ')}\``);
         
         const display = new RichDisplay(new MessageEmbed().setColor('#e4f714').setAuthor('Urban Dictionary Search', 'https://slack-files2.s3-us-west-2.amazonaws.com/avatars/2018-01-11/297387706245_85899a44216ce1604c93_512.jpg'));
 

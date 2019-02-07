@@ -15,6 +15,7 @@ require('./schemas/defaultGuildSchema');
 
 new Client({
     fetchAllMembers: false,
+    disableEveryone: true,
     prefix: config.prefix,
     commandEditing: true,
     permissionLevels: config.permissionLevels,
