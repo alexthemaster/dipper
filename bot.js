@@ -20,5 +20,6 @@ new Client({
     commandEditing: true,
     permissionLevels: config.permissionLevels,
     ownerID: config.owner,
+    production: true,
     readyMessage: (client) => `Successfully initialized as ${client.user.tag}. Ready to serve ${client.guilds.size} guilds with a total of ${client.users.size} users.`
 }).login(config.token);

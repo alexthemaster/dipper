@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/alexdemaster/dipper#readme",
   "dependencies": {
+    "dblapi.js": "^2.3.0",
     "discord.js": "github:discordjs/discord.js",
     "google-translate-api": "^2.3.0",
     "klasa": "github:dirigeants/klasa#master",
