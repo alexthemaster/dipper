@@ -10,7 +10,8 @@ config.permissionLevels = new PermissionLevels()
     .add(9, ({ author, client }) => author === client.owner, { break: true })
     .add(10, ({ author, client }) => author === client.owner);
 
-Client.defaultUserSchema.add('respects', 'integer', { default: 0 })
+require('./schemas/defaultUserSchema');
+require('./schemas/defaultGuildSchema');
 
 new Client({
     fetchAllMembers: false,
