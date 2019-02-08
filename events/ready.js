@@ -16,9 +16,7 @@ module.exports = class extends Event {
         const config = require('../data/config.json');
         if (config.DBL && this.client.options.production) {
             console.log('Running in Production.. Posting stats to DBL!')
-            setInterval(() => {
-                dbl.postStats(this.client.guilds.size);
-            }, 1800000);
+            const DBL = new dbl(config.DBL, this.client)
         } 
         await this.client.user.setActivity(`${this.client.options.prefix}confused`);
         await this.client.user.setStatus('dnd');
