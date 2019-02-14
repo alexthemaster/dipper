@@ -5,9 +5,9 @@ module.exports = class extends Event {
 
     constructor(...args) {
         super(...args, {
-            name: 'ready',
+            name: 'klasaReady',
             enabled: true,
-            event: 'ready',
+            event: 'klasaReady',
             once: false
         });
     }
