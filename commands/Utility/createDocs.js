@@ -36,18 +36,23 @@ module.exports = class extends Command {
             data['cmds'][c.category][c.name] = { description: c.description, usage: c.usageString, usageDelim: c.usageDelim, description: c.description, guarded: c.guarded, runIn: c.runIn, permissionLevel: c.permissionLevel, cooldown: c.cooldown, nsfw: c.nsfw, aliases: c.aliases }
         });
 
-        try {
-            let res = await fetch('https://hastebin.com/documents', {
-                method: "POST",
-                body: JSON.stringify(data)
-            })
-            res = await res.json();
-            await msg.delete();
-            return message.send(`Alright, here it is: https://hastebin.com/raw/${res.key}`);
-        } catch (err) {
-            await msg.delete();
-            return message.send(`Error while uploading file to Hastebin.`, { files: [{ attachment: Buffer.from(JSON.stringify(data)), name: 'output.json' }] });
+        if ('hastebin' in message.flags) {
+            try {
+                let res = await fetch('https://hastebin.com/documents', {
+                    method: "POST",
+                    body: JSON.stringify(data)
+                })
+                res = await res.json();
+                await msg.delete();
+                return message.send(`Alright, here it is: https://hastebin.com/raw/${res.key}`);
+            } catch (err) {
+                await msg.delete();
+                return message.send(`Error while uploading file to Hastebin.`, { files: [{ attachment: Buffer.from(JSON.stringify(data)), name: 'output.json' }] });
+            }
         }
+        
+        await msg.delete();
+        return message.send(`Here you go!.`, { files: [{ attachment: Buffer.from(JSON.stringify(data)), name: 'output.json' }] });
     }
 
     async init() {
