@@ -17,7 +17,7 @@ new Client({
     prefix: config.prefix,
     commandEditing: true,
     schedule: {
-        interval: 30000
+        interval: 20000
     },
     permissionLevels: config.permissionLevels,
     ownerID: config.owner,
