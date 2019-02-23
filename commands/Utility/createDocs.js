@@ -50,9 +50,9 @@ module.exports = class extends Command {
                 return message.send(`Error while uploading file to Hastebin.`, { files: [{ attachment: Buffer.from(JSON.stringify(data)), name: 'output.json' }] });
             }
         }
-        
+
         await msg.delete();
-        return message.send(`Here you go!.`, { files: [{ attachment: Buffer.from(JSON.stringify(data)), name: 'output.json' }] });
+        return message.send(`Here you go!`, { files: [{ attachment: Buffer.from(JSON.stringify(data)), name: 'output.json' }] });
     }
 
     async init() {
