@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/alexdemaster/dipper#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.4",
     "dblapi.js": "^2.3.0",
     "discord.js": "github:discordjs/discord.js",
-    "google-translate-api": "^2.3.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
     "klasa": "github:dirigeants/klasa#master",
     "mathjs": "^5.4.2",
     "ms": "^2.1.1",
