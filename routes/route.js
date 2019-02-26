@@ -29,7 +29,7 @@ router.get('/callback', async (req, res) => {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: `client_id=${req.client.user.id}&client_secret=${secret}&grant_type=authorization_code&code=${req.query.code}&redirect_uri=${encodeURIComponent(`${req.protocol}://${req.get('host')}/callback`)}&scope=identify`
+        body: `client_id=${req.client.user.id}&client_secret=${req.client.user.id == 346741490908921877 ? 'IdMm0nlKQ3ITcqIa3xQ4X4K5q07khClA' : secret}&grant_type=authorization_code&code=${req.query.code}&redirect_uri=${encodeURIComponent(`${req.protocol}://${req.get('host')}/callback`)}&scope=identify`
     });
 
     if (r.status !== 200) res.redirect('/login');
