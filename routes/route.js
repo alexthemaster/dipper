@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 
 router.get('/login', (req, res) => {
     if (req.cookies.token) res.redirect('/');
-    res.redirect(`https://discordapp.com/api/oauth2/authorize?client_id=${req.client.user.id}&redirect_uri=${encodeURIComponent(`${req.protocol}://${req.get('host')}:66/callback`)}&response_type=code&scope=identify`)
+    res.redirect(`https://discordapp.com/api/oauth2/authorize?client_id=${req.client.user.id}&redirect_uri=${encodeURIComponent(`${req.protocol}://${req.get('host')}/callback`)}&response_type=code&scope=identify`)
 
 });
 
@@ -29,7 +29,7 @@ router.get('/callback', async (req, res) => {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: `client_id=${req.client.user.id}&client_secret=${secret}&grant_type=authorization_code&code=${req.query.code}&redirect_uri=${encodeURIComponent(`${req.protocol}://${req.get('host')}:66/callback`)}&scope=identify`
+        body: `client_id=${req.client.user.id}&client_secret=${secret}&grant_type=authorization_code&code=${req.query.code}&redirect_uri=${encodeURIComponent(`${req.protocol}://${req.get('host')}/callback`)}&scope=identify`
     });
 
     if (r.status !== 200) res.redirect('/login');

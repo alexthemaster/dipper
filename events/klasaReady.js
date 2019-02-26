@@ -43,7 +43,7 @@ module.exports = class extends Event {
         app.use('/', injectClient, require(`${routes}/route`));
         app.use('/admin', injectClient, require(`${routes}/admin`));
 
-        const _PORT = 66;
+        const _PORT = process.env.PORT || 60;
         app.listen(_PORT, () => this.client.emit('log', `Admin panel started on port ${_PORT}`));
     }
 
