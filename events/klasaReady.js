@@ -15,15 +15,13 @@ module.exports = class extends Event {
     }
 
     async run() {
-        const config = require('../data/config.json');
+        const config = this.client.options.config;
         if (config.DBL && this.client.options.production) {
             console.log('Running in Production.. Posting stats to DBL!')
             const DBL = new dbl(config.DBL, this.client)
         }
         await this.client.user.setActivity(`${this.client.options.prefix}confused`);
         await this.client.user.setStatus('dnd');
-
-
     }
 
     async init() {

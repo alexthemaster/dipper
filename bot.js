@@ -19,6 +19,7 @@ new Client({
     schedule: {
         interval: 20000
     },
+    config: config,
     permissionLevels: config.permissionLevels,
     ownerID: config.owner,
     production: true,
