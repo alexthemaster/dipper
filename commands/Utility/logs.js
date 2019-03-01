@@ -26,7 +26,7 @@ module.exports = class extends Command {
     }
 
     async run(message) {
-        return message.send(`Hello! You can activate the logs by using \`${message.content.slice(0, message.prefixLength)}conf set logs.channel (#channel)\`. You will manually have to activate every loggin option, by doing \`${message.content.slice(0, message.prefixLength)}conf set logs.OPTION true\`. You can see all the logging options by doing \`${message.content.slice(0, message.prefixLength)}conf show logs\`! (to disable an option, or the logs, do \`${message.content.slice(0, message.prefixLength)}conf reset logs.OPTION\`, which will reset the chosen option to it's default state, disabled)`)
+        return message.send(`Hello! You can activate the logs by using \`${message.content.slice(0, message.prefixLength)}conf set logs.channel (#channel)\`. You can manually have to deactivate every loggin option, by doing \`${message.content.slice(0, message.prefixLength)}conf set logs.OPTION false\`. You can see all the logging options by doing \`${message.content.slice(0, message.prefixLength)}conf show logs\`! (to re-enable an option do \`${message.content.slice(0, message.prefixLength)}conf reset logs.OPTION\`, which will reset the chosen option to it's default state, enabled)`)
     }
 
     async init() {
