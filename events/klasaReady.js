@@ -25,24 +25,24 @@ module.exports = class extends Event {
     }
 
     async init() {
-        const app = express();
-        const cookieParser = require('cookie-parser');
+        // const app = express();
+        // const cookieParser = require('cookie-parser');
 
-        app.use(cookieParser());
-        app.set('view engine', 'ejs');
+        // app.use(cookieParser());
+        // app.set('view engine', 'ejs');
         
-        const routes = `${this.client.userBaseDirectory}/routes`;
+        // const routes = `${this.client.userBaseDirectory}/routes`;
 
-        const injectClient =  (req, res, next) => {
-            req.client = this.client;
-            next();
-        };
+        // const injectClient =  (req, res, next) => {
+        //     req.client = this.client;
+        //     next();
+        // };
 
-        app.use('/', injectClient, require(`${routes}/route`));
-        app.use('/admin', injectClient, require(`${routes}/admin`));
+        // app.use('/', injectClient, require(`${routes}/route`));
+        // app.use('/admin', injectClient, require(`${routes}/admin`));
 
-        const _PORT = process.env.PORT || 66;
-        app.listen(_PORT, () => this.client.emit('log', `Admin panel started on port ${_PORT}`));
+        // const _PORT = process.env.PORT || 66;
+        // app.listen(_PORT, () => this.client.emit('log', `Admin panel started on port ${_PORT}`));
     }
 
 };
