@@ -22,7 +22,7 @@ module.exports = class extends Event {
             }
         }
 
-		if (message.author === this.client.user) return;
+		if (!message.content.length) return;
         const settings = messages.first().guild.settings.logs;
         if (settings.channel && settings.messageDeleteBulk) {
             const msg = messages.map(message => `[${new Timestamp('LLL').display(message.createdAt)}] ${message.author.tag}: ${message.content}`);

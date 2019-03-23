@@ -9,7 +9,7 @@ module.exports = class extends Event {
 				msg.delete();
 			}
 		}
-		if (message.author === this.client.user) return;
+		if (!message.content.length) return;
 		const settings = message.guild.settings.logs;
 		if (settings.channel && settings.messageDelete) {
 			const embed = new MessageEmbed()
