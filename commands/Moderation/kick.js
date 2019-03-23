@@ -15,7 +15,7 @@ module.exports = class extends Command {
             guarded: false,
             nsfw: false,
             permissionLevel: 0,
-            requiredPermissions: [],
+            requiredPermissions: ["KICK_MEMBERS"],
             requiredSettings: [],
             subcommands: false,
             description: 'Kick a member!',

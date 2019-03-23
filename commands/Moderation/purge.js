@@ -14,7 +14,7 @@ module.exports = class extends Command {
             guarded: false,
             nsfw: false,
             permissionLevel: 0,
-            requiredPermissions: [],
+            requiredPermissions: ["MANAGE_MESSAGES"],
             requiredSettings: [],
             subcommands: false,
             description: 'Purge a given number of messages!',
@@ -29,6 +29,7 @@ module.exports = class extends Command {
 
     async run(message, [member, messages]) {
         if (!message.member.permissions.has('MANAGE_MESSAGES')) throw "You don't have permission to do this.";
+        await message.delete();
         let msgs;
         if (member) {
             msgs = await message.channel.messages.fetch();

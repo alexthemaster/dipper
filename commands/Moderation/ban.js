@@ -15,7 +15,7 @@ module.exports = class extends Command {
             guarded: false,
             nsfw: false,
             permissionLevel: 0,
-            requiredPermissions: [],
+            requiredPermissions: ["BAN_MEMBERS"],
             requiredSettings: [],
             subcommands: false,
             description: 'Ban a member!',
