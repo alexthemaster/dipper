@@ -34,7 +34,7 @@ module.exports = class extends Command {
             msgs = await message.channel.messages.fetch();
             msgs = msgs.filter(msg => msg.author.id === member.user.id).first(messages);
         }
-        message.channel.bulkDelete(msgs ? msgs : messages, true).then(msgsPurged => {
+        message.channel.bulkDelete(msgs ? msgs : messages, true).then(async msgsPurged => {
             let m = await message.send(`Successfully purged ${msgsPurged.size} messages${member ? ` from ${member.user.tag}` : ''}!`);
             setTimeout(() => {
                 m.delete();
