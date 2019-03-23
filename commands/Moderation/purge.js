@@ -35,7 +35,7 @@ module.exports = class extends Command {
             msgs = msgs.filter(msg => msg.author.id === member.user.id).first(messages);
         }
         message.channel.bulkDelete(msgs ? msgs : messages, true).then(msgsPurged => {
-            return message.send(`Successfully purged ${msgsPurged.size} messages${member ? ` from ${member.user.tag}` : ''}!`);
+            return message.send(`Successfully purged ${msgsPurged.size} messages${member ? ` from ${member.user.tag}` : ''}!`).then(m => m.delete(5000));
         }).catch(err => {
             return message.send(`An error occurred while performing this action.`);
         })
