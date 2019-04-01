@@ -20,7 +20,7 @@ module.exports = class extends Event {
             console.log('Running in Production.. Posting stats to DBL!')
             const DBL = new dbl(config.DBL, this.client)
         }
-        await this.client.user.setActivity(`${this.client.options.prefix}confused`);
+        await this.client.user.setActivity(`${this.client.options.prefix}help`);
         await this.client.user.setStatus('dnd');
     }
 
