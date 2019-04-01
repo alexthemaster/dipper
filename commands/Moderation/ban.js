@@ -30,6 +30,7 @@ module.exports = class extends Command {
 
     async run(message, [member, reason = 'No reason provided.']) {
         if (!message.member.permissions.has('BAN_MEMBERS')) throw "You don't have permission to do this.";
+        if (member.user === message.author) throw "You thought you was clever, eh?";
         if (!member.bannable) throw `I'm sorry, but I can't ban ${member.user.tag}!`;
 
         const settings = message.guild.settings.logs;
