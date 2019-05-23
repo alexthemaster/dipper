@@ -8,7 +8,7 @@ module.exports = class extends Command {
             name: 'reminder',
             enabled: true,
             runIn: ['text', 'dm'],
-            cooldown: 30,
+            cooldown: 15,
             deletable: true,
             bucket: 1,
             aliases: [],
