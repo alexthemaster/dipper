@@ -19,7 +19,7 @@ module.exports = class extends Command {
             subcommands: false,
             description: "Got a question? Ask it and I'll reply!",
             quotedStringSupport: false,
-            usage: '<question:reg/(\w{1,})\\?/i>',
+            usage: '<question:reg/(\\w{1,})\\?/i>',
             usageDelim: undefined,
             extendedHelp: 'No extended help available.'
         });
