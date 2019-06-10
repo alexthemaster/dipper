@@ -34,7 +34,7 @@ module.exports = class extends Command {
         let res = await fetch(url(term.join(' '), config.YouTube))
         res = await res.json();
 
-        return message.send(`https://youtube.com/channel/${res.items[0].id.channelId}${res.items[0].id.channelId == 'UCMB1pwlJz3kou_c_g99x5EQ' ? ' (am pula mare)' : ''}`);
+        return message.send(`https://youtube.com/channel/${res.items[0].id.channelId}`);
     }
 
     async init() {

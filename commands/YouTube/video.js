@@ -30,10 +30,6 @@ module.exports = class extends Command {
 
     async run(message, [...term]) {
         const config = require('../../data/config.json');
-
-        if (term.join(' ').toLowerCase() === 'mo bamba' || term.join(' ').toLowerCase() === 'mobamba') return message.send(`https://youtu.be/6ONRf7h3Mdk`);
-        if (term.join(' ').toLowerCase() === 'sicko mode' || term.join(' ').toLowerCase() === 'sickomode') return message.send(`https://youtu.be/VWoIpDVkOH0`);
-
         const url = (search, key) => `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${search}&key=${key}&type=video`;
         let res = await fetch(url(term.join(' '), config.YouTube))
         res = await res.json();
